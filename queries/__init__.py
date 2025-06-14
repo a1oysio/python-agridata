@@ -1,3 +1,6 @@
+
+__all__ = []
+
 class BaseQuery:
     def __init__(self, **params):
         self.params = params
