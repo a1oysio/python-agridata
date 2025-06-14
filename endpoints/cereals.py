@@ -13,7 +13,17 @@ class CerealsAPI:
         data = self.client._get("cereal", "prices", query.dict())
         return CerealPricesResponse(**data)
 
+    async def get_prices_async(self, **kwargs) -> CerealPricesResponse:
+        query = CerealPricesQuery(**kwargs)
+        data = await self.client._get("cereal", "prices", query.dict())
+        return CerealPricesResponse(**data)
+
     def get_production(self, **kwargs) -> CerealProductionResponse:
         query = CerealProductionQuery(**kwargs)
         data = self.client._get("cereal", "production", query.dict())
+        return CerealProductionResponse(**data)
+
+    async def get_production_async(self, **kwargs) -> CerealProductionResponse:
+        query = CerealProductionQuery(**kwargs)
+        data = await self.client._get("cereal", "production", query.dict())
         return CerealProductionResponse(**data)

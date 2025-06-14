@@ -1,3 +1,6 @@
-"""Response models for API results."""
+
 
 __all__ = []
+Class BaseResponse:
+    def __init__(self, **data):
+        self.data = data
