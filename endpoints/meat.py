@@ -11,3 +11,8 @@ class MeatAPI:
         query = MeatPricesQuery(**kwargs)
         data = self.client._get("meat", "prices", query.dict())
         return MeatPricesResponse(**data)
+
+    async def get_prices_async(self, **kwargs) -> MeatPricesResponse:
+        query = MeatPricesQuery(**kwargs)
+        data = await self.client._get("meat", "prices", query.dict())
+        return MeatPricesResponse(**data)
