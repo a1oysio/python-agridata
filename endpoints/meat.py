@@ -1,5 +1,6 @@
 
 # endpoints/meat.py
+from ..client import AgriDataClient
 from ..queries.meat import MeatPricesQuery
 from ..models.meat import MeatPricesResponse
 
