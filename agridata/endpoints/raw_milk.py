@@ -14,12 +14,12 @@ class RawMilkAPI(BaseAPI):
 for _service in RawMilkAPI.SERVICES:
     _name = _service.replace('/', '_')
 
-    def _sync(self, **kwargs, _svc=_service):
+    def _sync(self, _svc=_service, **kwargs):
         self._validate_service(_svc)
         query = BaseQuery(**kwargs)
         return self.client._get('rawMilk', _svc, query.dict())
 
-    async def _async(self, **kwargs, _svc=_service):
+    async def _async(self, _svc=_service, **kwargs):
         self._validate_service(_svc)
         query = BaseQuery(**kwargs)
         return await self.client._get('rawMilk', _svc, query.dict())
