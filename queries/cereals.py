@@ -1,7 +1,8 @@
 from . import BaseQuery
+from ..enums import COMMON_PARAMS
 
 class CerealPricesQuery(BaseQuery):
-    pass
+    VALID_PARAMS = COMMON_PARAMS.keys()
 
 class CerealProductionQuery(BaseQuery):
-    pass
+    VALID_PARAMS = COMMON_PARAMS.keys()
