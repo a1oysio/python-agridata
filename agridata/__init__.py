@@ -1,3 +1,3 @@
-from .service import AgriDataService
+from .service import AgriDataService, AgriDataAsyncService
 
-__all__ = ["AgriDataService"]
+__all__ = ["AgriDataService", "AgriDataAsyncService"]
