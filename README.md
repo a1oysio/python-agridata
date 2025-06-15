@@ -12,14 +12,14 @@ cd python-agridata
 pip install requests
 ```
 
-## API key configuration
+## API access
 
-An API key is required to access the AgriData endpoints. Pass the key when creating a client or service instance:
+The AgriData service is publicly accessible and does not require authentication. Simply create a service instance:
 
 ```python
 from agridata.service import AgriDataService
 
-service = AgriDataService(api_key="YOUR_API_KEY")
+service = AgriDataService()
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ The `AgriDataService` uses a synchronous client under the hood:
 ```python
 from agridata.service import AgriDataService
 
-service = AgriDataService(api_key="YOUR_API_KEY")
+service = AgriDataService()
 prices = service.cereals.get_prices(memberStateCodes="IT", marketingYears="2024")
 print(prices)
 ```
@@ -45,7 +45,7 @@ import asyncio
 from agridata.service import AgriDataAsyncService
 
 async def main():
-    service = AgriDataAsyncService(api_key="YOUR_API_KEY")
+    service = AgriDataAsyncService()
     prices = await service.cereals.get_prices(memberStateCodes="IT", marketingYears="2024")
     print(prices)
 

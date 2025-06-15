@@ -37,8 +37,8 @@ from .endpoints.organic_async import OrganicAPI as AsyncOrganicAPI
 
 
 class AgriDataService:
-    def __init__(self, api_key: str):
-        client = AgriDataClient(api_key)
+    def __init__(self):
+        client = AgriDataClient()
         self.cereals = SyncCerealsAPI(client)
         self.beef = SyncBeefAPI(client)
         self.live_animal = SyncLiveAnimalAPI(client)
@@ -61,8 +61,8 @@ class AgriDataService:
 class AgriDataAsyncService:
     """Asynchronous service exposing API endpoints."""
 
-    def __init__(self, api_key: str):
-        client = AsyncAgriDataClient(api_key)
+    def __init__(self):
+        client = AsyncAgriDataClient()
         self.client = client
         self.cereals = AsyncCerealsAPI(client)
         self.beef = AsyncBeefAPI(client)
