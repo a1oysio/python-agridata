@@ -32,7 +32,7 @@ The `AgriDataService` uses a synchronous client under the hood:
 from python_agridata.service import AgriDataService
 
 service = AgriDataService(api_key="YOUR_API_KEY")
-prices = service.cereals.get_prices(memberStateCodes="IT", years="2024")
+prices = service.cereals.get_prices(memberStateCodes="IT", marketingYears="2024")
 print(prices)
 ```
 
@@ -46,7 +46,7 @@ from python_agridata.async_service import AgriDataServiceAsync
 
 async def main():
     service = AgriDataServiceAsync(api_key="YOUR_API_KEY")
-    prices = await service.cereals.get_prices(memberStateCodes="IT", years="2024")
+    prices = await service.cereals.get_prices(memberStateCodes="IT", marketingYears="2024")
     print(prices)
 
 asyncio.run(main())
@@ -63,7 +63,7 @@ currently supported products and their services as defined by the official API.
 | meat    | prices |
 
 All query classes accept a common set of parameters used when calling the API:
-`memberStateCodes`, `categories`, `productCodes`, `years`, `weeks`, `months`,
+`memberStateCodes`, `categories`, `productCodes`, `marketingYears`, `weeks`, `months`,
 `beginDate` and `endDate`.
 
 ## Examples and tests
