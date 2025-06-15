@@ -15,6 +15,8 @@ from .endpoints.olive_oil import OliveOilAPI as SyncOliveOilAPI
 from .endpoints.wine import WineAPI as SyncWineAPI
 from .endpoints.taxud import TaxudAPI as SyncTaxudAPI
 from .endpoints.cmef_indicators import CmefIndicatorsAPI as SyncCmefIndicatorsAPI
+from .endpoints.fertiliser import FertiliserAPI as SyncFertiliserAPI
+from .endpoints.organic import OrganicAPI as SyncOrganicAPI
 from .endpoints.cereals_async import CerealsAPI as AsyncCerealsAPI
 from .endpoints.beef_async import BeefAPI as AsyncBeefAPI
 from .endpoints.live_animal_async import LiveAnimalAPI as AsyncLiveAnimalAPI
