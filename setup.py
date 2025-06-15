@@ -4,12 +4,6 @@ setup(
     name="agridata",
     version="0.1.0",
     description="Python wrapper for the EC AgriData API",
-    packages=[
-        "agridata",
-        "agridata.endpoints",
-        "agridata.queries",
-        "agridata.models",
-        "agridata.exceptions",
-    ],
+    packages=find_packages(exclude=("tests",)),
     install_requires=["requests", "httpx"],
 )
