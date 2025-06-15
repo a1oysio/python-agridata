@@ -25,7 +25,7 @@ BEEF_SERVICES = [
     "prices",
     "categories",
     "productCodes",
-    "production"
+    "production",
     "production/categories"
     ]
 
@@ -50,7 +50,7 @@ EGGS_POULTRY_SERVICES = [
     "priceTypes",
     "prices/month",
     "prices/month/priceTypes",
-    "egg/prices"
+    "egg/prices",
     "egg/farmingMethods",
     "production",
     "production/animals",
@@ -100,14 +100,14 @@ RICE_SERVICES = [
 
 OILSEED_SERVICES = [
     "prices",
-    "products"
+    "products",
     "productTypes",
     "markets",
-    "marketStages"
-    "production"
+    "marketStages",
+    "production",
     "production/crops",
-    "crops/prices"
-    "crops/products"
+    "crops/prices",
+    "crops/products",
     "crops/productTypes",
     "crops/marketStages"
     ]
@@ -115,13 +115,13 @@ OILSEED_SERVICES = [
 SUGAR_SERVICES = [
     "prices",
     "regions",
-    "production"
+    "production",
     "production/regions"
     ]
 
 OLIVE_OIL_SERVICES = [
     "prices",
-    "products"
+    "products",
     "markets",
     "memberStates",
     "production",
@@ -169,5 +169,4 @@ ORGANIC_SERVICES = [
     "organicProducts",
     "overallProducts",
     ]
-
 
