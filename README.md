@@ -60,8 +60,6 @@ currently supported products and their services as defined by the official API.
 | Product | Services |
 |---------|---------|
 | cereals | prices, products, stages, markets, production, production/crops |
-| meat    | prices |
-
 All query classes accept a common set of parameters used when calling the API:
 `memberStateCodes`, `categories`, `productCodes`, `marketingYears`, `weeks`, `months`,
 `beginDate` and `endDate`.
