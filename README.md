@@ -38,14 +38,14 @@ print(prices)
 
 ### Asynchronous client
 
-An asynchronous interface will be available in future releases. Once implemented you will be able to use it as follows:
+An asynchronous interface is available using `AgriDataAsyncService`:
 
 ```python
 import asyncio
-from agridata.async_service import AgriDataServiceAsync
+from agridata.service import AgriDataAsyncService
 
 async def main():
-    service = AgriDataServiceAsync(api_key="YOUR_API_KEY")
+    service = AgriDataAsyncService(api_key="YOUR_API_KEY")
     prices = await service.cereals.get_prices(memberStateCodes="IT", marketingYears="2024")
     print(prices)
 
