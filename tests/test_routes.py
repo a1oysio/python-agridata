@@ -15,7 +15,7 @@ class DummyResponse:
         return self._data
 
 def test_cereals_prices_route(monkeypatch):
-    service = AgriDataService("token")
+    service = AgriDataService()
     captured = {}
     def mock_get(url, params=None, timeout=None):
         captured["url"] = url
@@ -28,7 +28,7 @@ def test_cereals_prices_route(monkeypatch):
 
 
 def test_dairy_prices_route(monkeypatch):
-    service = AgriDataService("token")
+    service = AgriDataService()
     captured = {}
     def mock_get(url, params=None, timeout=None):
         captured["url"] = url

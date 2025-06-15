@@ -5,10 +5,9 @@ import httpx
 from .config import API_BASE_URL, DEFAULT_TIMEOUT
 
 class AgriDataClient:
-    def __init__(self, api_key: str, timeout: int = DEFAULT_TIMEOUT):
+    def __init__(self, timeout: int = DEFAULT_TIMEOUT):
         self.session = requests.Session()
         self.session.headers.update({
-            "Authorization": f"Bearer {api_key}",
             "Accept": "application/json"
         })
         self.timeout = timeout
@@ -23,9 +22,8 @@ class AgriDataClient:
 class AsyncAgriDataClient:
     """Asynchronous version of :class:`AgriDataClient` using ``httpx``."""
 
-    def __init__(self, api_key: str, timeout: int = DEFAULT_TIMEOUT):
+    def __init__(self, timeout: int = DEFAULT_TIMEOUT):
         self.session = httpx.AsyncClient(timeout=timeout, headers={
-            "Authorization": f"Bearer {api_key}",
             "Accept": "application/json",
         })
 
