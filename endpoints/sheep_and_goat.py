@@ -1,0 +1,28 @@
+from ..client import AgriDataClient
+from ..queries import BaseQuery
+from ..enums import SHEEP_GOAT_SERVICES
+from .base import BaseAPI
+
+
+class SheepAndGoatAPI(BaseAPI):
+    SERVICES = SHEEP_GOAT_SERVICES
+
+    def __init__(self, client: AgriDataClient):
+        super().__init__(client)
+
+
+for _service in SheepAndGoatAPI.SERVICES:
+    _name = _service.replace('/', '_')
+
+    def _sync(self, **kwargs, _svc=_service):
+        self._validate_service(_svc)
+        query = BaseQuery(**kwargs)
+        return self.client._get('sheepAndGoat', _svc, query.dict())
+
+    async def _async(self, **kwargs, _svc=_service):
+        self._validate_service(_svc)
+        query = BaseQuery(**kwargs)
+        return await self.client._get('sheepAndGoat', _svc, query.dict())
+
+    setattr(SheepAndGoatAPI, f"get_{_name}", _sync)
+    setattr(SheepAndGoatAPI, f"get_{_name}_async", _async)
