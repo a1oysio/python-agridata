@@ -1,20 +1,28 @@
 from datetime import datetime
-import requests
 
 HOST_URL = "https://ec.europa.eu/agrifood/api/{CATEGORY}/{SERVICE}"
 
 
 
-CEREAL_SERVCES = ["prices", "products", "stages", "markets", "production", "production/crops"]
+CEREAL_SERVICES = [
+    "prices",
+    "products",
+    "stages",
+    "markets",
+    "production",
+    "production/crops",
+]
+
+MEAT_SERVICES = ["prices"]
 
 
-params = {
+COMMON_PARAMS = {
     "memberStateCodes": str,
     "categories": str,
     "productCodes": str,
-    "years": str, 
+    "years": str,
     "weeks": str,
-    "months": str, 
+    "months": str,
     "beginDate": datetime,
     "endDate": datetime,
 }

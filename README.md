@@ -52,6 +52,20 @@ async def main():
 asyncio.run(main())
 ```
 
+## Available services
+
+Each product category exposes different services. The table below lists the
+currently supported products and their services as defined by the official API.
+
+| Product | Services |
+|---------|---------|
+| cereals | prices, products, stages, markets, production, production/crops |
+| meat    | prices |
+
+All query classes accept a common set of parameters used when calling the API:
+`memberStateCodes`, `categories`, `productCodes`, `years`, `weeks`, `months`,
+`beginDate` and `endDate`.
+
 ## Examples and tests
 
 Example scripts will be placed in the `examples/` folder. After cloning the repository you will be able to run them with:
