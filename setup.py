@@ -9,6 +9,7 @@ setup(
         "agridata.endpoints",
         "agridata.queries",
         "agridata.models",
+        "agridata.exceptions",
     ],
     install_requires=["requests", "httpx"],
 )
