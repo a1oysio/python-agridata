@@ -20,7 +20,7 @@ The API is synchronous. Create a service instance and call the available endpoin
 from agridata.service import AgriDataService
 
 service = AgriDataService()
-prices = service.cereals.get_prices(memberStateCodes="IT", marketingYears="2024")
+prices = service.cereal.get_prices(memberStateCodes="IT", marketingYears="2024")
 print(prices)
 ```
 

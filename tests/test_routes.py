@@ -14,15 +14,15 @@ class DummyResponse:
     def json(self):
         return self._data
 
-def test_cereals_prices_route(monkeypatch):
+def test_cereal_prices_route(monkeypatch):
     service = AgriDataService()
     captured = {}
     def mock_get(url, params=None, timeout=None):
         captured["url"] = url
         captured["params"] = params
         return DummyResponse([])
-    monkeypatch.setattr(service.cereals.client.session, "get", mock_get)
-    service.cereals.get_prices(memberStateCodes="IT")
+    monkeypatch.setattr(service.cereal.client.session, "get", mock_get)
+    service.cereal.get_prices(memberStateCodes="IT")
     assert captured["url"] == f"{API_BASE_URL}/cereal/prices"
     assert captured["params"] == {"memberStateCodes": "IT"}
 
