@@ -31,7 +31,23 @@ currently supported products and their services as defined by the official API.
 
 | Product | Services |
 |---------|---------|
-| cereals | prices, products, stages, markets, production, production/crops |
+| beef | prices, categories, productCodes, production, production/categories |
+| liveAnimal | prices, categories |
+| pigmeat | prices, cuts/prices, cuts/categories, cuts/priceTypes, cuts/prices/month, cuts/prices/month/categories, cuts/prices/month/priceTypes, production |
+| poultry | prices, priceTypes, prices/month, prices/month/priceTypes, egg/prices, egg/farmingMethods, production, production/animals |
+| sheepAndGoat | prices, categories, markets, production, production/meats, production/items |
+| rawMilk | prices, products |
+| dairy | prices, products, production, production/categories |
+| cereal | prices, products, stages, markets, production, production/crops |
+| rice | prices, stages, types, varieties, memberStates, production, production/types, production/products |
+| oilseeds | prices, products, productTypes, markets, marketStages, production, production/crops, crops/prices, crops/products, crops/productTypes, crops/marketStages |
+| sugar | prices, regions, production, production/regions |
+| oliveOil | prices, products, markets, memberStates, production |
+| wine | prices, descriptions |
+| taxud | weeklyData/import, weeklyData/sectors, weeklyData/importCategories, weeklyData/import/cn8ProductCodes, weeklyData/import/taric10ProductCodes, weeklyData/import/products, weeklyData/export, weeklyData/export/cn8ProductCodes, weeklyData/export/taric10ProductCodes, weeklyData/export/products |
+| cmefIndicators | values, types, categories, indicators, subIndicators, parameters, units, codes, sources |
+| fertiliser | prices, prices/products |
+| organic | prices, sectors, organicProducts, overallProducts |
 All query classes accept a common set of parameters used when calling the API:
 `memberStateCodes`, `categories`, `productCodes`, `marketingYears`, `weeks`, `months`,
 `beginDate` and `endDate`.
