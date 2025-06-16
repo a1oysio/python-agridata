@@ -1,5 +1,4 @@
 from ..client import AsyncAgriDataClient
-from ..queries import BaseQuery
 from ..enums import DAIRY_SERVICES
 from .base import BaseAPI
 
@@ -15,7 +14,7 @@ for _service in DairyAPI.SERVICES:
 
     async def _async(self, _svc=_service, **kwargs):
         self._validate_service(_svc)
-        query = BaseQuery(**kwargs)
-        return await self.client._get('dairy', _svc, query.dict())
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return await self.client._get('dairy', _svc, params)
 
     setattr(DairyAPI, f"get_{_name}", _async)

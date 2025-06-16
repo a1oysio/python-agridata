@@ -1,5 +1,4 @@
 from ..client import AgriDataClient
-from ..queries import BaseQuery
 from ..enums import FERTILISER_SERVICES
 from .base import BaseAPI
 
@@ -16,13 +15,13 @@ for _service in FertiliserAPI.SERVICES:
 
     def _sync(self, _svc=_service, **kwargs):
         self._validate_service(_svc)
-        query = BaseQuery(**kwargs)
-        return self.client._get('fertiliser', _svc, query.dict())
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return self.client._get('fertiliser', _svc, params)
 
     async def _async(self, _svc=_service, **kwargs):
         self._validate_service(_svc)
-        query = BaseQuery(**kwargs)
-        return await self.client._get('fertiliser', _svc, query.dict())
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return await self.client._get('fertiliser', _svc, params)
 
     setattr(FertiliserAPI, f"get_{_name}", _sync)
     setattr(FertiliserAPI, f"get_{_name}_async", _async)

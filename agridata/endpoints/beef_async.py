@@ -1,19 +1,5 @@
 from ..client import AsyncAgriDataClient
 from ..enums import BEEF_SERVICES
-from ..queries.beef import (
-    BeefPricesQuery,
-    BeefCategoriesQuery,
-    BeefProductCodesQuery,
-    BeefProductionQuery,
-    BeefProductionCategoriesQuery,
-)
-from ..models.beef import (
-    BeefPricesResponse,
-    BeefCategoryResponse,
-    BeefProductCodesResponse,
-    BeefProductionResponse,
-    BeefProductionCategoriesResponse,
-)
 from .base import BaseAPI
 
 
@@ -23,32 +9,24 @@ class BeefAPI(BaseAPI):
     def __init__(self, client: AsyncAgriDataClient):
         super().__init__(client)
 
-    async def get_prices(self, **kwargs) -> BeefPricesResponse:
+    async def get_prices(self, **kwargs):
         self._validate_service("prices")
-        query = BeefPricesQuery(**kwargs)
-        data = await self.client._get("beef", "prices", query.dict())
-        return BeefPricesResponse.from_api(data)
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return await self.client._get("beef", "prices", params)
 
-    async def get_categories(self) -> BeefCategoryResponse:
+    async def get_categories(self):
         self._validate_service("categories")
-        query = BeefCategoriesQuery()
-        data = await self.client._get("beef", "categories", query.dict())
-        return BeefCategoryResponse.from_api(data)
+        return await self.client._get("beef", "categories", {})
 
-    async def get_productCodes(self) -> BeefProductCodesResponse:
+    async def get_productCodes(self):
         self._validate_service("productCodes")
-        query = BeefProductCodesQuery()
-        data = await self.client._get("beef", "productCodes", query.dict())
-        return BeefProductCodesResponse.from_api(data)
+        return await self.client._get("beef", "productCodes", {})
 
-    async def get_production(self, **kwargs) -> BeefProductionResponse:
+    async def get_production(self, **kwargs):
         self._validate_service("production")
-        query = BeefProductionQuery(**kwargs)
-        data = await self.client._get("beef", "production", query.dict())
-        return BeefProductionResponse.from_api(data)
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return await self.client._get("beef", "production", params)
 
-    async def get_production_categories(self) -> BeefProductionCategoriesResponse:
+    async def get_production_categories(self):
         self._validate_service("production/categories")
-        query = BeefProductionCategoriesQuery()
-        data = await self.client._get("beef", "production/categories", query.dict())
-        return BeefProductionCategoriesResponse.from_api(data)
+        return await self.client._get("beef", "production/categories", {})

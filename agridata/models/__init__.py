@@ -1,8 +1,0 @@
-
-
-__all__ = []
-
-
-class BaseResponse:
-    def __init__(self, **data):
-        self.data = data
