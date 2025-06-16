@@ -1,7 +1,7 @@
 # service.py
 from .client import AgriDataClient
-from . import endpoints
-from .endpoints.base import _to_class_name
+from . import api
+from .api import _to_class_name
 from .enums import CATEGORY_SERVICES
 
 
@@ -16,7 +16,7 @@ class AgriDataService:
 
         for _category in CATEGORY_SERVICES.keys():
             _cls_name = _to_class_name(_category)
-            _cls = getattr(endpoints, _cls_name)
+            _cls = getattr(api, _cls_name)
             setattr(self, _to_attr(_category), _cls(client))
 
 

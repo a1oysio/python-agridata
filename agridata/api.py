@@ -1,3 +1,6 @@
+from .enums import CATEGORY_SERVICES
+
+
 class BaseAPI:
     SERVICES = None
 
@@ -39,3 +42,11 @@ def create_api_class(category: str, services: list):
         attrs[f"get_{_name}"] = _sync
 
     return type(class_name, (BaseAPI,), attrs)
+
+
+__all__ = ["BaseAPI"]
+
+for _category, _services in CATEGORY_SERVICES.items():
+    _cls = create_api_class(_category, _services)
+    globals()[_cls.__name__] = _cls
+    __all__.append(_cls.__name__)
