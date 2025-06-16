@@ -16,9 +16,6 @@ def _to_class_name(category: str) -> str:
     """Return a CamelCase class name for a category."""
     import re
 
-    if category == "cereal":
-        return "CerealsAPI"
-
     # Insert spaces before capitals, then split on spaces, hyphens or underscores
     tmp = re.sub("([A-Z])", r" \1", category)
     parts = re.split(r"[\s_-]+", tmp)
