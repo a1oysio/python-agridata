@@ -5,5 +5,5 @@ setup(
     version="0.1.0",
     description="Python wrapper for the EC AgriData API",
     packages=find_packages(exclude=("tests",)),
-    install_requires=["requests", "httpx"],
+    install_requires=["requests"],
 )
