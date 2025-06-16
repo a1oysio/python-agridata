@@ -4,13 +4,15 @@ Python wrapper for the European Commission AgriData API.
 
 ## Installation
 
-Clone the repository and install the dependencies manually (only `requests` is currently required):
+Clone the repository and install the package:
 
 ```bash
 git clone https://github.com/carazzolo/python-agridata.git
 cd python-agridata
-pip install requests
+pip install .
 ```
+
+The package depends only on `requests`, which is installed automatically.
 
 ## Usage
 
