@@ -12,21 +12,9 @@ cd python-agridata
 pip install requests
 ```
 
-## API access
-
-The AgriData service is publicly accessible and does not require authentication. Simply create a service instance:
-
-```python
-from agridata.service import AgriDataService
-
-service = AgriDataService()
-```
-
 ## Usage
 
-### Synchronous client
-
-The `AgriDataService` uses a synchronous client under the hood:
+The API is synchronous. Create a service instance and call the available endpoints:
 
 ```python
 from agridata.service import AgriDataService
