@@ -1,9 +1,8 @@
-from .service import AgriDataService, AgriDataAsyncService
+from .service import AgriDataService
 from .exceptions import AgriDataError, AgriDataHTTPError
 
 __all__ = [
     "AgriDataService",
-    "AgriDataAsyncService",
     "AgriDataError",
     "AgriDataHTTPError",
 ]
