@@ -25,8 +25,8 @@ def test_error_message_exposed(monkeypatch):
     service = AgriDataService()
     def mock_get(url, params=None, timeout=None):
         return ErrorResponse()
-    monkeypatch.setattr(service.cereals.client.session, "get", mock_get)
+    monkeypatch.setattr(service.cereal.client.session, "get", mock_get)
     with pytest.raises(AgriDataHTTPError) as exc:
-        service.cereals.get_prices()
+        service.cereal.get_prices()
     assert "not found" in str(exc.value)
     assert exc.value.status_code == 404
