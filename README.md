@@ -36,22 +36,6 @@ prices = service.cereals.get_prices(memberStateCodes="IT", marketingYears="2024"
 print(prices)
 ```
 
-### Asynchronous client
-
-An asynchronous interface is available using `AgriDataAsyncService`:
-
-```python
-import asyncio
-from agridata.service import AgriDataAsyncService
-
-async def main():
-    service = AgriDataAsyncService()
-    prices = await service.cereals.get_prices(memberStateCodes="IT", marketingYears="2024")
-    print(prices)
-
-asyncio.run(main())
-```
-
 ## Available services
 
 Each product category exposes different services. The table below lists the

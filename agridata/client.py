@@ -1,7 +1,6 @@
 
 # client.py
 import requests
-import httpx
 from .config import API_BASE_URL, DEFAULT_TIMEOUT
 from .exceptions import AgriDataHTTPError
 
@@ -35,23 +34,3 @@ class AgriDataClient:
         return resp.json()
 
 
-class AsyncAgriDataClient:
-    """Asynchronous version of :class:`AgriDataClient` using ``httpx``."""
-
-    def __init__(self, timeout: int = DEFAULT_TIMEOUT):
-        self.session = httpx.AsyncClient(timeout=timeout, headers={
-            "Accept": "application/json",
-        })
-
-    async def _get(self, category: str, service: str, params: dict):
-        url = f"{API_BASE_URL}/{category}/{service}"
-        resp = await self.session.get(url, params=params)
-        try:
-            resp.raise_for_status()
-        except httpx.HTTPStatusError as exc:
-            message = _extract_error_message(resp)
-            raise AgriDataHTTPError(resp.status_code, message) from exc
-        return resp.json()
-
-    async def aclose(self):
-        await self.session.aclose()
