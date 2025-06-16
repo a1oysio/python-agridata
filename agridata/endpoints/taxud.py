@@ -18,10 +18,4 @@ for _service in TaxudAPI.SERVICES:
         params = {k: v for k, v in kwargs.items() if v is not None}
         return self.client._get('taxud', _svc, params)
 
-    async def _async(self, _svc=_service, **kwargs):
-        self._validate_service(_svc)
-        params = {k: v for k, v in kwargs.items() if v is not None}
-        return await self.client._get('taxud', _svc, params)
-
     setattr(TaxudAPI, f"get_{_name}", _sync)
-    setattr(TaxudAPI, f"get_{_name}_async", _async)
