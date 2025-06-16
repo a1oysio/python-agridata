@@ -1,8 +1,6 @@
 # endpoints/cereals.py
 from ..client import AgriDataClient
 from ..enums import CEREAL_SERVICES
-from ..queries.cereals import CerealPricesQuery, CerealProductionQuery
-from ..models.cereals import CerealPricesResponse, CerealProductionResponse
 from .base import BaseAPI
 
 
@@ -12,26 +10,22 @@ class CerealsAPI(BaseAPI):
     def __init__(self, client: AgriDataClient):
         super().__init__(client)
 
-    def get_prices(self, **kwargs) -> CerealPricesResponse:
+    def get_prices(self, **kwargs):
         self._validate_service("prices")
-        query = CerealPricesQuery(**kwargs)
-        data = self.client._get("cereal", "prices", query.dict())
-        return CerealPricesResponse.from_api(data)
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return self.client._get("cereal", "prices", params)
 
-    async def get_prices_async(self, **kwargs) -> CerealPricesResponse:
+    async def get_prices_async(self, **kwargs):
         self._validate_service("prices")
-        query = CerealPricesQuery(**kwargs)
-        data = await self.client._get("cereal", "prices", query.dict())
-        return CerealPricesResponse.from_api(data)
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return await self.client._get("cereal", "prices", params)
 
-    def get_production(self, **kwargs) -> CerealProductionResponse:
+    def get_production(self, **kwargs):
         self._validate_service("production")
-        query = CerealProductionQuery(**kwargs)
-        data = self.client._get("cereal", "production", query.dict())
-        return CerealProductionResponse.from_api(data)
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return self.client._get("cereal", "production", params)
 
-    async def get_production_async(self, **kwargs) -> CerealProductionResponse:
+    async def get_production_async(self, **kwargs):
         self._validate_service("production")
-        query = CerealProductionQuery(**kwargs)
-        data = await self.client._get("cereal", "production", query.dict())
-        return CerealProductionResponse.from_api(data)
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return await self.client._get("cereal", "production", params)

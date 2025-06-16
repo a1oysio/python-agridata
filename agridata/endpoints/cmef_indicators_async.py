@@ -1,5 +1,4 @@
 from ..client import AsyncAgriDataClient
-from ..queries import BaseQuery
 from ..enums import CMEF_INDICATORS_SERVICES
 from .base import BaseAPI
 
@@ -15,7 +14,7 @@ for _service in CmefIndicatorsAPI.SERVICES:
 
     async def _async(self, _svc=_service, **kwargs):
         self._validate_service(_svc)
-        query = BaseQuery(**kwargs)
-        return await self.client._get('cmefIndicators', _svc, query.dict())
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        return await self.client._get('cmefIndicators', _svc, params)
 
     setattr(CmefIndicatorsAPI, f"get_{_name}", _async)
