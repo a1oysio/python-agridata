@@ -9,12 +9,13 @@ class CerealsAPI(BaseAPI):
     def __init__(self, client: AsyncAgriDataClient):
         super().__init__(client)
 
-    async def get_prices(self, **kwargs):
-        self._validate_service("prices")
-        params = {k: v for k, v in kwargs.items() if v is not None}
-        return await self.client._get("cereal", "prices", params)
 
-    async def get_production(self, **kwargs):
-        self._validate_service("production")
+for _service in CerealsAPI.SERVICES:
+    _name = _service.replace('/', '_')
+
+    async def _async(self, _svc=_service, **kwargs):
+        self._validate_service(_svc)
         params = {k: v for k, v in kwargs.items() if v is not None}
-        return await self.client._get("cereal", "production", params)
+        return await self.client._get('cereal', _svc, params)
+
+    setattr(CerealsAPI, f"get_{_name}", _async)

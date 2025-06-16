@@ -10,46 +10,19 @@ class BeefAPI(BaseAPI):
     def __init__(self, client: AgriDataClient):
         super().__init__(client)
 
-    def get_prices(self, **kwargs):
-        self._validate_service("prices")
+
+for _service in BeefAPI.SERVICES:
+    _name = _service.replace('/', '_')
+
+    def _sync(self, _svc=_service, **kwargs):
+        self._validate_service(_svc)
         params = {k: v for k, v in kwargs.items() if v is not None}
-        return self.client._get("beef", "prices", params)
+        return self.client._get('beef', _svc, params)
 
-    async def get_prices_async(self, **kwargs):
-        self._validate_service("prices")
+    async def _async(self, _svc=_service, **kwargs):
+        self._validate_service(_svc)
         params = {k: v for k, v in kwargs.items() if v is not None}
-        return await self.client._get("beef", "prices", params)
+        return await self.client._get('beef', _svc, params)
 
-    def get_categories(self):
-        self._validate_service("categories")
-        return self.client._get("beef", "categories", {})
-
-    async def get_categories_async(self):
-        self._validate_service("categories")
-        return await self.client._get("beef", "categories", {})
-
-    def get_productCodes(self):
-        self._validate_service("productCodes")
-        return self.client._get("beef", "productCodes", {})
-
-    async def get_productCodes_async(self):
-        self._validate_service("productCodes")
-        return await self.client._get("beef", "productCodes", {})
-
-    def get_production(self, **kwargs):
-        self._validate_service("production")
-        params = {k: v for k, v in kwargs.items() if v is not None}
-        return self.client._get("beef", "production", params)
-
-    async def get_production_async(self, **kwargs):
-        self._validate_service("production")
-        params = {k: v for k, v in kwargs.items() if v is not None}
-        return await self.client._get("beef", "production", params)
-
-    def get_production_categories(self):
-        self._validate_service("production/categories")
-        return self.client._get("beef", "production/categories", {})
-
-    async def get_production_categories_async(self):
-        self._validate_service("production/categories")
-        return await self.client._get("beef", "production/categories", {})
+    setattr(BeefAPI, f"get_{_name}", _sync)
+    setattr(BeefAPI, f"get_{_name}_async", _async)
