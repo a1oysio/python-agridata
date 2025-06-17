@@ -62,6 +62,12 @@ Example scripts will be placed in the `examples/` folder. After cloning the repo
 python examples/<example_name>.py
 ```
 
+For a quick demonstration run the `basic_usage.py` script:
+
+```bash
+python examples/basic_usage.py
+```
+
 Tests will be runnable with `pytest` once they are added:
 
 ```bash
