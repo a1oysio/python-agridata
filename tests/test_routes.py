@@ -1,8 +1,3 @@
-import os
-import sys
-
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
 from agridata.service import AgriDataService
 from agridata.config import API_BASE_URL
 
@@ -38,3 +33,18 @@ def test_dairy_prices_route(monkeypatch):
     service.dairy.get_prices()
     assert captured["url"] == f"{API_BASE_URL}/dairy/prices"
     assert captured["params"] == {}
+
+
+def test_oilseeds_prices_route(monkeypatch):
+    service = AgriDataService()
+    captured = {}
+
+    def mock_get(url, params=None, timeout=None):
+        captured["url"] = url
+        captured["params"] = params
+        return DummyResponse([])
+
+    monkeypatch.setattr(service.oilseeds.client.session, "get", mock_get)
+    service.oilseeds.get_prices(products="rapeseed")
+    assert captured["url"] == f"{API_BASE_URL}/oilseeds/prices"
+    assert captured["params"] == {"products": "rapeseed"}

@@ -1,9 +1,5 @@
-import os
-import sys
 import json
 import pytest
-
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from agridata.service import AgriDataService
 from agridata.exceptions import AgriDataHTTPError
