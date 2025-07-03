@@ -56,7 +56,11 @@ All query classes accept a common set of parameters used when calling the API:
 
 ## Examples and tests
 
-Example scripts will be placed in the `examples/` folder. After cloning the repository you will be able to run them with:
+Example scripts live in the `examples/` folder and are intentionally minimal.
+They rely only on Python's standard library and this package. Any previous
+demonstrations that used third–party tools like pandas or matplotlib have been
+removed to keep the examples lightweight. After cloning the repository you can
+run a script with:
 
 ```bash
 python examples/<example_name>.py
