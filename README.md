@@ -72,7 +72,10 @@ For a quick demonstration run the `basic_usage.py` script:
 python examples/basic_usage.py
 ```
 
-Tests will be runnable with `pytest` once they are added:
+### Running tests
+
+The project uses `pytest` for its test suite. From the repository root simply
+run:
 
 ```bash
 pytest
