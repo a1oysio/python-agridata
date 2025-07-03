@@ -15,13 +15,17 @@ def main():
     print("Cereal products:", products)
 
     # Example of filtering by parameters when retrieving prices
-    prices = service.cereal.get_prices(memberStateCodes="IT", marketingYears="2024")
+    prices = service.cereal.get_prices(memberStateCodes="IT")
     print("Italian cereal prices for 2024:", prices)
 
     # Another request with different parameters
     production = service.cereal.get_production(memberStateCodes="FR", marketingYears="2023")
     print("French cereal production in 2023:", production)
 
+
+    l1 = service.cereal.get_production_crops()
+    l2 = service.cereal.get_products()
+    print(l1, l2)
 
 if __name__ == "__main__":
     main()
