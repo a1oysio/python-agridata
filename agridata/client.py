@@ -1,4 +1,3 @@
-
 # client.py
 import requests
 from .config import API_BASE_URL, DEFAULT_TIMEOUT
@@ -14,6 +13,7 @@ def _extract_error_message(resp) -> str:
     except Exception:
         pass
     return resp.text
+
 
 class AgriDataClient:
     def __init__(self, timeout: int = DEFAULT_TIMEOUT):
@@ -32,5 +32,3 @@ class AgriDataClient:
             message = _extract_error_message(resp)
             raise AgriDataHTTPError(resp.status_code, message) from exc
         return resp.json()
-
-

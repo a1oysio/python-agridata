@@ -4,21 +4,27 @@ import pytest
 from agridata.service import AgriDataService
 from agridata.exceptions import AgriDataHTTPError
 
+
 class ErrorResponse:
     def __init__(self, status_code=404, data=None):
         self.status_code = status_code
         self._data = data or {"message": "not found"}
+
     def raise_for_status(self):
         import requests
         raise requests.HTTPError(f"{self.status_code} Error")
+
     def json(self):
         return self._data
+
     @property
     def text(self):
         return json.dumps(self._data)
 
+
 def test_error_message_exposed(monkeypatch):
     service = AgriDataService()
+
     def mock_get(url, params=None, timeout=None):
         return ErrorResponse()
     monkeypatch.setattr(service.cereal.client.session, "get", mock_get)
