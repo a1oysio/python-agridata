@@ -1,17 +1,22 @@
 from agridata.service import AgriDataService
 from agridata.config import API_BASE_URL
 
+
 class DummyResponse:
     def __init__(self, data=None):
         self._data = data or []
+
     def raise_for_status(self):
         pass
+
     def json(self):
         return self._data
+
 
 def test_cereal_prices_route(monkeypatch):
     service = AgriDataService()
     captured = {}
+
     def mock_get(url, params=None, timeout=None):
         captured["url"] = url
         captured["params"] = params
@@ -25,6 +30,7 @@ def test_cereal_prices_route(monkeypatch):
 def test_dairy_prices_route(monkeypatch):
     service = AgriDataService()
     captured = {}
+
     def mock_get(url, params=None, timeout=None):
         captured["url"] = url
         captured["params"] = params

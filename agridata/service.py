@@ -18,5 +18,3 @@ class AgriDataService:
             _cls_name = _to_class_name(_category)
             _cls = getattr(api, _cls_name)
             setattr(self, _to_attr(_category), _cls(client))
-
-

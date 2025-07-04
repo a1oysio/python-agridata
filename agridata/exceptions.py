@@ -1,6 +1,7 @@
 class AgriDataError(Exception):
     """Base exception for AgriData errors."""
 
+
 class AgriDataHTTPError(AgriDataError):
     """Raised when the API returns a non-successful HTTP response."""
 
@@ -8,4 +9,3 @@ class AgriDataHTTPError(AgriDataError):
         self.status_code = status_code
         self.message = message
         super().__init__(f"{status_code}: {message}")
-
