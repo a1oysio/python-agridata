@@ -21,6 +21,7 @@ def test_cereal_prices_route(monkeypatch):
         captured["url"] = url
         captured["params"] = params
         return DummyResponse([])
+
     monkeypatch.setattr(service.cereal.client.session, "get", mock_get)
     service.cereal.get_prices(memberStateCodes="IT")
     assert captured["url"] == f"{API_BASE_URL}/cereal/prices"
@@ -35,6 +36,7 @@ def test_dairy_prices_route(monkeypatch):
         captured["url"] = url
         captured["params"] = params
         return DummyResponse([])
+
     monkeypatch.setattr(service.dairy.client.session, "get", mock_get)
     service.dairy.get_prices()
     assert captured["url"] == f"{API_BASE_URL}/dairy/prices"

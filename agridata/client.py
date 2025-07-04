@@ -18,9 +18,7 @@ def _extract_error_message(resp) -> str:
 class AgriDataClient:
     def __init__(self, timeout: int = DEFAULT_TIMEOUT):
         self.session = requests.Session()
-        self.session.headers.update({
-            "Accept": "application/json"
-        })
+        self.session.headers.update({"Accept": "application/json"})
         self.timeout = timeout
 
     def _get(self, category: str, service: str, params: dict):

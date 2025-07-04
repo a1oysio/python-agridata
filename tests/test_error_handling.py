@@ -12,6 +12,7 @@ class ErrorResponse:
 
     def raise_for_status(self):
         import requests
+
         raise requests.HTTPError(f"{self.status_code} Error")
 
     def json(self):
@@ -27,6 +28,7 @@ def test_error_message_exposed(monkeypatch):
 
     def mock_get(url, params=None, timeout=None):
         return ErrorResponse()
+
     monkeypatch.setattr(service.cereal.client.session, "get", mock_get)
     with pytest.raises(AgriDataHTTPError) as exc:
         service.cereal.get_prices()
