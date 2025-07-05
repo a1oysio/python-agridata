@@ -1,6 +1,6 @@
 # AgriData
 
-`agridata` is a lightweight Python wrapper for the European Commission's AgriData API.
+`agridata` is a unofficial lightweight Python wrapper for the European Commission's AgriData API.
 It exposes the various API categories as Python classes with convenient methods for
 each available service.
 
