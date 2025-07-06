@@ -39,7 +39,7 @@ svc = AgriDataService()
 beef_data = svc.beef.get_prices(years=2023)
 
 # Pigmeat production
-pigmeat_data = svc.pigmeat.get_production(marketingYears=2023)
+pigmeat_data = svc.pigmeat.get_production(years=2023)
 
 # Cereal markets
 cereal_markets = svc.cereal.get_markets()
