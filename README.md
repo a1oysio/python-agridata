@@ -20,7 +20,7 @@ from agridata import AgriDataService
 svc = AgriDataService()
 
 # call the API, for example beef prices
-data = svc.beef.get_prices(year=2023)
+data = svc.beef.get_prices(years=2023)
 ```
 
 The `AgriDataService` object contains attributes for every API category
@@ -36,16 +36,16 @@ this package:
 svc = AgriDataService()
 
 # Beef prices
-beef_data = svc.beef.get_prices(year=2023)
+beef_data = svc.beef.get_prices(years=2023)
 
 # Pigmeat production
-pigmeat_data = svc.pigmeat.get_production(year=2023)
+pigmeat_data = svc.pigmeat.get_production(marketingYears=2023)
 
 # Cereal markets
 cereal_markets = svc.cereal.get_markets()
 
 # Raw milk prices
-milk_prices = svc.raw_milk.get_prices(year=2023)
+milk_prices = svc.raw_milk.get_prices(years=2023)
 ```
 
 ## Running Tests
