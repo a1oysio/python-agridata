@@ -25,7 +25,7 @@ data = svc.beef.get_prices(years=2023)
 
 The `AgriDataService` object contains attributes for every API category
 (e.g. `beef`, `pigmeat`, `dairy`, ...). Each attribute exposes `get_*`
-methods corresponding to the services listed in the official API.
+methods corresponding to the services listed in the [official API](https://agridata.ec.europa.eu/extensions/DataPortal/API_Documentation.html).
 
 ## Examples
 
