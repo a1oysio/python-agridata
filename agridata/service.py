@@ -1,13 +1,14 @@
 # service.py
 from .client import AgriDataClient
+from .config import DEFAULT_TIMEOUT
 from . import api
 from .api import _to_class_name
 from .enums import CATEGORY_SERVICES
 
 
 class AgriDataService:
-    def __init__(self):
-        client = AgriDataClient()
+    def __init__(self, timeout: int = DEFAULT_TIMEOUT):
+        client = AgriDataClient(timeout=timeout)
 
         def _to_attr(category: str) -> str:
             import re

@@ -17,7 +17,8 @@ pip install .
 ```python
 from agridata import AgriDataService
 
-svc = AgriDataService()
+# Increase the request timeout to 30 seconds
+svc = AgriDataService(timeout=30)
 
 # call the API, for example beef prices
 data = svc.beef.get_prices(years=2023)
@@ -33,7 +34,8 @@ The following snippets show how to query a few different categories using only
 this package:
 
 ```python
-svc = AgriDataService()
+# The timeout can be adjusted if needed
+svc = AgriDataService(timeout=30)
 
 # Beef prices
 beef_data = svc.beef.get_prices(years=2023)
